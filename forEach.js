@@ -1,7 +1,7 @@
-function forEach(arr, callback){
-    for(element of arr){
-        callback(element, arr.indexOf(element),arr);
-    }; 
+function forEach(arr, callback) {
+    for (let i = 0; i < arr.length; i++) {
+        callback(arr[i], i, arr);
+    };
 }
 
 

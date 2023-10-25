@@ -1,4 +1,5 @@
 const forEach = require("./forEach");
+const findIndex = require("./findIndex");
 
 // For Each Example
 let finalResult = "";
@@ -10,4 +11,8 @@ forEach(['My', "forEach", "Example"], (element, index, arr) => {
     }
 });
 
-console.log({ finalResult });
+const answer = findIndex([3, 4, 6, 2, 1], (num, index, arr) => num === 1);
+const answer1 = findIndex([5, 11, 13, 8, 6, 7], num => num % 2 === 0);
+
+// 
+console.log({ finalResult, answer, answer1 });

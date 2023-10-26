@@ -28,9 +28,7 @@ p1.then((result) => console.log({ result }));
 
 const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-        const randomInt = Math.floor(Math.random() * 10)
-        console.log({ randomInt })
-        resolve(randomInt);
+        resolve(Math.floor(Math.random() * 10));
     }, 500)
 })
 
@@ -40,9 +38,7 @@ promise.then((data) => {
 
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            const randomInt22 = Math.floor(Math.random() * 10)
-            console.log({ randomInt22 })
-            resolve(randomInt22);
+            resolve(Math.floor(Math.random() * 10));
         }, 3000);
     })
 }).then(data2 => console.log({ data2 }))

@@ -47,12 +47,27 @@ function vowelCount(str) {
     return newObj;
 }
 
+// Practise
+// Map
+
+const doubleValuesMap = (arr) => arr.map(val => val * 2);
+
+const valTimesIndex = arr => arr.map((val, index) => val * index);
+
+const extractKey = (arr, key) => arr.map(val => val[key]);
+
+const extractFullName = arr => arr.map(({ first, last }) => `${first} ${last}`);
+
 module.exports = {
     doubleValues,
     onlyEvenValues,
     showFirstAndLast,
     addKeyAndValue,
-    vowelCount
+    vowelCount,
+    doubleValuesMap,
+    valTimesIndex,
+    extractKey,
+    extractFullName
 }
 
 

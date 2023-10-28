@@ -1,7 +1,7 @@
 const forEach = require("./forEach");
 const findIndex = require("./findIndex");
 const countDown = require('./countdownTimer');
-const { doubleValues, onlyEvenValues, showFirstAndLast, addKeyAndValue, vowelCount } = require("./practise");
+const { doubleValuesMap, doubleValues, extractKey, valTimesIndex, extractFullName, onlyEvenValues, showFirstAndLast, addKeyAndValue, vowelCount } = require("./practise");
 
 // For Each Example
 let finalResult = "";
@@ -49,10 +49,10 @@ const answer1 = findIndex([5, 11, 13, 8, 6, 7], num => num % 2 === 0);
 console.log({ showFirstAndLast: showFirstAndLast(['colt', 'matt', 'tim', 'udemy']) });
 console.log({ addKeyAndValue: addKeyAndValue([{ name: 'Elie' }, { name: 'Tim' }, { name: 'Matt' }, { name: 'Colt' }], 'title', 'instructor') })
 console.log({ vowelCount: vowelCount('I Am awesome and so are you') })
-
-
-
-
+console.log({ double: doubleValuesMap([1, 2, 3, 4, 5]) })
+console.log({ one: valTimesIndex([1, 2, 3]), two: valTimesIndex([1, -2, -3]) })
+console.log({ extractKey: extractKey([{ name: 'Elie' }, { name: 'Tim' }, { name: 'Matt' }, { name: 'Colt' }], 'name') });
+console.log({ extractFullName: extractFullName([{ first: 'Elie', last: "Schoppik" }, { first: 'Tim', last: "Garcia" }, { first: 'Matt', last: "Lane" }, { first: 'Colt', last: "Steele" }]) })
 
 
 

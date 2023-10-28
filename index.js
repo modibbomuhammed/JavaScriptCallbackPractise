@@ -1,7 +1,7 @@
 const forEach = require("./forEach");
 const findIndex = require("./findIndex");
 const countDown = require('./countdownTimer');
-const { doubleValuesMap, doubleValues, extractKey, valTimesIndex, extractFullName, onlyEvenValues, showFirstAndLast, addKeyAndValue, vowelCount } = require("./practise");
+const { doubleValuesMap, doubleValues, doubleOddNumbers, find, findInObj, filterByValue, extractKey, valTimesIndex, extractFullName, onlyEvenValues, showFirstAndLast, addKeyAndValue, vowelCount, removeVowels } = require("./practise");
 
 // For Each Example
 let finalResult = "";
@@ -53,6 +53,17 @@ console.log({ double: doubleValuesMap([1, 2, 3, 4, 5]) })
 console.log({ one: valTimesIndex([1, 2, 3]), two: valTimesIndex([1, -2, -3]) })
 console.log({ extractKey: extractKey([{ name: 'Elie' }, { name: 'Tim' }, { name: 'Matt' }, { name: 'Colt' }], 'name') });
 console.log({ extractFullName: extractFullName([{ first: 'Elie', last: "Schoppik" }, { first: 'Tim', last: "Garcia" }, { first: 'Matt', last: "Lane" }, { first: 'Colt', last: "Steele" }]) })
+console.log({ filterByValue: filterByValue([{ first: 'Elie', last: "Schoppik" }, { first: 'Tim', last: "Garcia", isCatOwner: true }, { first: 'Matt', last: "Lane" }, { first: 'Colt', last: "Steele", isCatOwner: true }, { name: "Modibbo M.A", isCatOwner: false }], 'isCatOwner') })
+console.log({ find: find([1, 2, 3, 4, 5], 3), find1: find([1, 2, 3, 4, 5], 10) })
+console.log({ findInObj: findInObj([{ first: 'Elie', last: "Schoppik" }, { first: 'Tim', last: "Garcia", isCatOwner: true }, { first: 'Matt', last: "Lane" }, { first: 'Colt', last: "Steele", isCatOwner: true }], 'isCatOwner', true) })
+console.log({ one: removeVowels('Elie'), two: removeVowels('TIM'), three: removeVowels('ZZZZZZ') })
+console.log({ one: doubleOddNumbers([1, 2, 3, 4, 5]), two: doubleOddNumbers([4, 4, 4, 4, 4]) })
+
+
+
+
+
+
 
 
 

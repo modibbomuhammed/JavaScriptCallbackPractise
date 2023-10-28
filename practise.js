@@ -58,6 +58,25 @@ const extractKey = (arr, key) => arr.map(val => val[key]);
 
 const extractFullName = arr => arr.map(({ first, last }) => `${first} ${last}`);
 
+// Practise
+// Filter
+// This first one is to check wether the key is in the object and the value is true
+// const filterByValue = (arr, key) => arr.filter(val => key in val && val[key]);
+const filterByValue = (arr, key) => arr.filter(val => key in val);
+
+const find = (arr, value) => arr.filter(val => val === value)[0];
+
+const findInObj = (arr, key, value) => arr.filter(val => val[key] === value)[0];
+
+const removeVowels = (str) => {
+    const vowels = "aeiou"
+    return str.toLowerCase().split('').filter(val => !vowels.includes(val)).join('');
+}
+
+function doubleOddNumbers(arr) {
+    return arr.filter(val => val % 2 !== 0).map(val => val * 2);
+}
+
 module.exports = {
     doubleValues,
     onlyEvenValues,
@@ -67,8 +86,37 @@ module.exports = {
     doubleValuesMap,
     valTimesIndex,
     extractKey,
-    extractFullName
+    extractFullName,
+    filterByValue,
+    find,
+    findInObj,
+    removeVowels,
+    doubleOddNumbers
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

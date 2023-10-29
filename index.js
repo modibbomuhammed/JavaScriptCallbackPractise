@@ -1,7 +1,7 @@
 const forEach = require("./forEach");
 const findIndex = require("./findIndex");
 const countDown = require('./countdownTimer');
-const { doubleValuesMap, doubleValues, doubleOddNumbers, find, findInObj, filterByValue, extractKey, valTimesIndex, extractFullName, onlyEvenValues, showFirstAndLast, addKeyAndValue, vowelCount, removeVowels } = require("./practise");
+const { doubleValuesMap, doubleValues, hasAZero, hasOddNumber, hasCertainKey, doubleOddNumbers, hasNoDuplicates, hasOnlyOddNumbers, find, findInObj, filterByValue, extractKey, valTimesIndex, extractFullName, onlyEvenValues, showFirstAndLast, addKeyAndValue, vowelCount, removeVowels } = require("./practise");
 
 // For Each Example
 let finalResult = "";
@@ -58,9 +58,22 @@ console.log({ find: find([1, 2, 3, 4, 5], 3), find1: find([1, 2, 3, 4, 5], 10) }
 console.log({ findInObj: findInObj([{ first: 'Elie', last: "Schoppik" }, { first: 'Tim', last: "Garcia", isCatOwner: true }, { first: 'Matt', last: "Lane" }, { first: 'Colt', last: "Steele", isCatOwner: true }], 'isCatOwner', true) })
 console.log({ one: removeVowels('Elie'), two: removeVowels('TIM'), three: removeVowels('ZZZZZZ') })
 console.log({ one: doubleOddNumbers([1, 2, 3, 4, 5]), two: doubleOddNumbers([4, 4, 4, 4, 4]) })
+console.log({ oddOne: hasOddNumber([1, 2, 2, 2, 2, 2, 4]), oddTwo: hasOddNumber([2, 2, 2, 2, 2, 4]) })
+console.log({ one: hasAZero(3332123213101232321), two: hasAZero(1212121) })
+console.log({ onlyOddNumberOne: hasOnlyOddNumbers([1, 3, 5, 7]), hasOnlyOddNumbersTwo: hasOnlyOddNumbers([1, 2, 3, 5, 7]) })
+console.log({ duplicates: hasNoDuplicates([1, 2, 3, 1]) })
+console.log({ duplicatestwo: hasNoDuplicates([1, 2, 3]) })
+console.log({
+    hasCertainKey: hasCertainKey([
+        { title: "Instructor", first: 'Elie', last: "Schoppik" },
+        { title: "Instructor", first: 'Tim', last: "Garcia", isCatOwner: true },
+        { title: "Instructor", first: 'Matt', last: "Lane" },
+        { title: "Instructor", first: 'Colt', last: "Steele", isCatOwner: true }
+    ], 'isCatOwner')
+})
 
-
-
+// false
+// true
 
 
 

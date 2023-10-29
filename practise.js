@@ -77,6 +77,25 @@ function doubleOddNumbers(arr) {
     return arr.filter(val => val % 2 !== 0).map(val => val * 2);
 }
 
+const hasOddNumber = arr => arr.some(val => val % 2 !== 0);
+
+const hasAZero = num => num.toString().split('').some(val => Number(val) === 0);
+
+const hasOnlyOddNumbers = arr => arr.every(val => val % 2 !== 0);
+
+// This also works
+// const hasNoDuplicates = arr => arr.sort().every((val, index, arr) => val !== arr[index - 1]);
+
+const hasNoDuplicates = arr => arr.every((val, index, arr) => arr.indexOf(val) === arr.lastIndexOf(val));
+
+function hasCertainKey(arr, key) {
+    return arr.every(function (val) {
+        return key in val;
+    });
+}
+
+const hasCertainValue = (arr, key, value) => arr.every(val => val[key] === value);
+
 module.exports = {
     doubleValues,
     onlyEvenValues,
@@ -91,7 +110,13 @@ module.exports = {
     find,
     findInObj,
     removeVowels,
-    doubleOddNumbers
+    doubleOddNumbers,
+    hasOddNumber,
+    hasAZero,
+    hasOnlyOddNumbers,
+    hasNoDuplicates,
+    hasCertainKey,
+    hasCertainValue
 }
 
 

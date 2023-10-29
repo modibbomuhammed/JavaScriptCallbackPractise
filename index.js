@@ -1,7 +1,7 @@
 const forEach = require("./forEach");
 const findIndex = require("./findIndex");
 const countDown = require('./countdownTimer');
-const { doubleValuesMap, doubleValues, hasAZero, hasOddNumber, hasCertainKey, doubleOddNumbers, hasNoDuplicates, hasOnlyOddNumbers, find, findInObj, filterByValue, extractKey, valTimesIndex, extractFullName, onlyEvenValues, showFirstAndLast, addKeyAndValue, vowelCount, removeVowels } = require("./practise");
+const { doubleValuesMap, doubleValues, hasAZero, partition, anotherVowelCount, addKeyAndValueReduce, hasOddNumber, hasCertainKey, doubleOddNumbers, hasNoDuplicates, hasOnlyOddNumbers, find, findInObj, filterByValue, extractKey, valTimesIndex, extractFullName, onlyEvenValues, showFirstAndLast, addKeyAndValue, vowelCount, removeVowels } = require("./practise");
 
 // For Each Example
 let finalResult = "";
@@ -71,9 +71,42 @@ console.log({
         { title: "Instructor", first: 'Colt', last: "Steele", isCatOwner: true }
     ], 'isCatOwner')
 })
+console.log(anotherVowelCount('Elie'))
+console.log(anotherVowelCount('Tim'))
+console.log(anotherVowelCount('Matt'))
+console.log(anotherVowelCount('hmm'))
+console.log(anotherVowelCount('I Am awesome and so are you'))
+console.log(addKeyAndValueReduce([{ name: 'Elie' }, { name: 'Tim' }, { name: 'Matt' }, { name: 'Colt' }], "title", "instructor"))
 
-// false
-// true
+function isEven(val) {
+    return val % 2 === 0;
+}
+
+var arr11 = [1, 2, 3, 4, 5, 6, 7, 8];
+
+console.log({ partition1: partition(arr11, isEven) })
+
+function isLongerThanThreeCharacters(val) {
+    return val.length > 3;
+}
+
+var names = ['Elie', 'Colt', 'Tim', 'Matt'];
+
+console.log({ partition2: partition(names, isLongerThanThreeCharacters) })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

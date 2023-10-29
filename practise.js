@@ -77,6 +77,8 @@ function doubleOddNumbers(arr) {
     return arr.filter(val => val % 2 !== 0).map(val => val * 2);
 }
 
+
+// SOME AND EVER
 const hasOddNumber = arr => arr.some(val => val % 2 !== 0);
 
 const hasAZero = num => num.toString().split('').some(val => Number(val) === 0);
@@ -95,6 +97,42 @@ function hasCertainKey(arr, key) {
 }
 
 const hasCertainValue = (arr, key, value) => arr.every(val => val[key] === value);
+
+// REDUCE
+
+const extractValue = (arr, key) => arr.reduce((acc, next) => {
+    acc.push(next[key]);
+    return acc;
+}, [])
+
+const anotherVowelCount = (str) => {
+    const vowels = "aeiou";
+    return str.toLowerCase().split('').reduce(function (acc, next) {
+        if (vowels.includes(next)) {
+            if (acc[next] === undefined) {
+                acc[next] = 1;
+            } else {
+                acc[next]++
+            }
+        }
+        return acc;
+    }, {})
+};
+
+const addKeyAndValueReduce = (arr, key, value) => arr.reduce((acc, next) => {
+    next[key] = value;
+    acc.push(next);
+    return acc;
+}, []);
+
+const partition = (arr, callback) => arr.reduce((acc, next) => {
+    if (callback(next)) {
+        acc[0].push(next);
+    } else {
+        acc[1].push(next);
+    };
+    return acc;
+}, [[], []]);
 
 module.exports = {
     doubleValues,
@@ -116,7 +154,11 @@ module.exports = {
     hasOnlyOddNumbers,
     hasNoDuplicates,
     hasCertainKey,
-    hasCertainValue
+    hasCertainValue,
+    extractValue,
+    anotherVowelCount,
+    addKeyAndValueReduce,
+    partition
 }
 
 

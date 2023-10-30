@@ -3,6 +3,7 @@ const findIndex = require("./findIndex");
 const countDown = require('./countdownTimer');
 const { doubleValuesMap, doubleValues, hasAZero, partition, anotherVowelCount, addKeyAndValueReduce, hasOddNumber, hasCertainKey, doubleOddNumbers, hasNoDuplicates, hasOnlyOddNumbers, find, findInObj, filterByValue, extractKey, valTimesIndex, extractFullName, onlyEvenValues, showFirstAndLast, addKeyAndValue, vowelCount, removeVowels } = require("./practise");
 const { specialMultiply, guessingGame } = require('./closure');
+const { sumEvenArguments } = require('./thisKeyword');
 
 // For Each Example
 let finalResult = "";
@@ -100,7 +101,9 @@ const test2 = specialMultiply(10, 5);
 
 console.log({ test, test2, test3: test(2) })
 
-
+console.log(sumEvenArguments(1, 2, 3, 4)) // 6
+console.log(sumEvenArguments(1, 2, 6)) // 8
+console.log(sumEvenArguments(1, 2)) // 2
 
 
 

@@ -16,7 +16,7 @@ function invokeMax(cbk, maxAmount) {
     return function () {
         counter++
         if (counter > maxAmount) return "Maxed Out"
-        return cbk.apply(null, arguments);
+        return cbk.apply(this, arguments);
     }
 };
 
@@ -45,11 +45,37 @@ function once(fn, thisArg) {
 const bind = (fn, thisArg, ...arr) => {
     return function () {
         const args = [].slice.call(arguments);
-        return fn.bind(thisArg, ...arr, ...args)();
+        // return fn.bind(thisArg, ...arr, ...args)();
+        return fn.apply(thisArg, arr.concat(args));
     }
 };
 
-module.exports = { sumEvenArguments, invokeMax, once, bind };
+// Write a function called flip which accepts a function and a value for 
+// the keyword this.Flip should return a new function that when invoked, 
+// will invoke the function passed to flip with the correct value of 
+// the keyword this and all of the arguments passed to the function REVERSED.
+//HINT  - if you pass more than two parameters to flip, 
+// those parameters should be included as parameters to the inner function 
+// when it is invoked.You will have to make use of closure! 
+
+// Flip should return a new function that when invoked takes the 
+// correct number of required arguments to that function which are then reversed.
+// HINT - you will need to use the.length property on functions to figure out 
+// the correct amount of arguments.For example:
+
+function flip(fn, thisArg) {
+    const outerArgs = [].slice.call(arguments, 2);
+    return function () {
+        const length = fn.length;
+        const innerArgs = [].slice.call(arguments);
+        const allArgs = outerArgs.concat(innerArgs).slice(0, length).reverse();
+        return fn.apply(thisArg, allArgs);
+    }
+}
+
+
+
+module.exports = { sumEvenArguments, invokeMax, once, bind, flip };
 
 
 

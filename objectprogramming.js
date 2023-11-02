@@ -22,13 +22,42 @@ function Parent(firstName, lastName, favoriteColor, favoriteFood) {
     this.lastName = lastName;
     this.favoriteColor = favoriteColor;
     this.favoriteFood = favoriteFood;
+    this.family = [];
+}
+
+Person.prototype.fullName = function () {
+    return `${this.firstName} ${this.lastName}`;
+}
+
+Person.prototype.addToFamily = function (person) {
+    if (person instanceof Person) return this.family.push(person);
 }
 
 function Child() {
+    // function Child(firstName, lastName, favoriteColor, favoriteFood) {
     Parent.apply(this, arguments);
 }
 
-module.exports = { Person, Parent, Child }
+function Vehicle(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.isRunning = false;
+}
+
+Vehicle.prototype.turnOn = function () {
+    this.isRunning = true;
+}
+
+Vehicle.prototype.turnOff = function () {
+    this.isRunning = false;
+}
+
+Vehicle.prototype.honk = function () {
+    return this.isRunning ? "beep" : undefined;
+}
+Child.
+    module.exports = { Person, Parent, Child, Vehicle }
 
 
 

@@ -45,6 +45,14 @@ function Vehicle(make, model, year) {
     this.isRunning = false;
 }
 
+Vehicle.prototype.start = function () {
+    return `VROOM!`;
+}
+
+Vehicle.prototype.toString = function () {
+    return `The make,model and year are ${this.make},${this.model},${this.year}`;
+}
+
 Vehicle.prototype.turnOn = function () {
     this.isRunning = true;
 }
@@ -56,8 +64,25 @@ Vehicle.prototype.turnOff = function () {
 Vehicle.prototype.honk = function () {
     return this.isRunning ? "beep" : undefined;
 }
-Child.
-    module.exports = { Person, Parent, Child, Vehicle }
+// Child.
+
+function Car(make, model, year) {
+    Vehicle.apply(this, arguments);
+    this.numWheels = 4;
+}
+
+Car.prototype = Object.create(Vehicle.prototype);
+Car.prototype.constructor = Car;
+
+function Motocycle(make, model, year) {
+    Vehicle.apply(this, arguments);
+    this.numWheels = 2;
+}
+
+Motocycle.prototype = Object.create(Vehicle.prototype);
+Motocycle.prototype.constructor = Motocycle;
+
+module.exports = { Person, Parent, Child, Vehicle }
 
 
 

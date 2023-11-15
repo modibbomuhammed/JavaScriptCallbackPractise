@@ -27,6 +27,42 @@ const bind = (func, thisArg, ...outer) => {
     }
 };
 
+// Destructuring
+
+const displayStudentInfo = ({ first, last }) => `Your FullName is ${first} ${last}`;
+
+const createStudent = ({ likesES2015 = true, likesJavaScript = true } = {}) => {
+    if (likesES2015 && likesJavaScript) return `The student likes Javascript and ES2015`;
+    if (!likesES2015) return `The student likes Javascript`;
+    if (!likesJavaScript) return `The student likes ES2015`;
+    if (!likesES2015 && !likesJavaScript) return `The student does not like much...`;
+};
+
+const reverseArray = (arr) => {
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

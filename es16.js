@@ -39,7 +39,10 @@ const createStudent = ({ likesES2015 = true, likesJavaScript = true } = {}) => {
 };
 
 const reverseArray = (arr) => {
-    
+    for (let x = 0; x < arr.length / 2; x++) {
+        [arr[arr.length - 1 - x], arr[x]] = [arr[x], arr[arr.length - 1 - x]];
+    }
+    return arr;
 }
 
 

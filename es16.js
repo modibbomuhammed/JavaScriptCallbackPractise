@@ -161,19 +161,13 @@ const countPairs = (arr, num) => {
     // Hint - Try to use Promise.all to solve this and remember that the jQuery AJAX methods($.getJSON, $.ajax, etc.) return a promise.
 
     async function getMostFollowers(...usernames){
-        const usersData = [];
         const api = `https://api.github.com/users/`
         return await Promise.all(usernames.map(val => {
             return fetch(`${api}${val}`)
                     .then(res => res.json())
-                    .then(data => {
-                        usersData.push(data);
-                    })
         })).then(data => {
-            console.log({data})
-            const max = Math.max(...usersData.map(({followers}) => Number(followers)));
-            const userWithMostFollowers = usersData.find(user => user.followers === max);
-            console.log(`The user with the most users is ${userWithMostFollowers.name} with ${max} Users`)
+            const [max] = data.sort((a, b) => b.followers - a.followers);
+            return `The user with the most users is ${max.name} with ${max.followers} Users`;
         })
     }     
 //"Colt has the most followers with 424"
@@ -186,7 +180,9 @@ const countPairs = (arr, num) => {
  //the name of the character.
 
 function starWarsString(num){
-    
+    return fetch(`https://swapi.dev/api/people/${num}`)
+                .then(res => res.json())
+                .then(data => data.name)
 } 
  
 //"Luke Skywalker"

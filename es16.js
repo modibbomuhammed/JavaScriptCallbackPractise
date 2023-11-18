@@ -179,10 +179,12 @@ const countPairs = (arr, num) => {
  // Your function should return a promise that when resolved will console.log 
  //the name of the character.
 
-function starWarsString(num){
-    return fetch(`https://swapi.dev/api/people/${num}`)
-                .then(res => res.json())
-                .then(data => data.name)
+async function starWarsString(num) {
+    let str = ''
+    const data = await (await fetch(`https://swapi.dev/api/people/${num}`)).json();
+    str += `${data.name} featured in `;
+    const filmData = await (await fetch(data.films[0])).json();
+    return str += `${filmData.title}, directed by ${filmData.director}`;
 } 
  
 //"Luke Skywalker"
